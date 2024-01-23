@@ -9,7 +9,7 @@ onde foi mapeado cada componente utilizado nos testes.
 
 Cada parte do site foi separada de acordo com a página referente.
 Dentro da pasta de cada página, há um arquivo `.feature` e um `.js`,
-o arquivo `feature` é responsavel pela escrida em Gherkin enquanto
+o arquivo `feature` é responsavel pela escrita em Gherkin enquanto
 o arquivo `js` são os `step_definitions`
 
 Também há um pequeno teste de API onde é testado o status da requisição e alguns campos retornados.
