@@ -14,6 +14,8 @@
   "devDependencies": {
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
     "cypress": "^13.6.3",
+    "cypress-mochawesome-reporter": "^3.8.0",
+    "cypress-on-fix": "^1.0.2",
     "esbuild": "^0.19.11"
   }
 }

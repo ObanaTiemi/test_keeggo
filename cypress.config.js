@@ -1,5 +1,6 @@
 const { defineConfig } = require("cypress");
 const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
+const cypressOnFix = require('cypress-on-fix');
 const {
   addCucumberPreprocessorPlugin,
 } = require("@badeball/cypress-cucumber-preprocessor");
@@ -9,13 +10,17 @@ const {
 
 async function setupNodeEvents(on, config) {
   // This is required for the preprocessor to be able to generate JSON reports after each run, and more,
+  on = cypressOnFix(on);
+
+  require('cypress-mochawesome-reporter/plugin')(on);
+
   await addCucumberPreprocessorPlugin(on, config);
 
   on(
     "file:preprocessor",
     createBundler({
       plugins: [createEsbuildPlugin(config)],
-    })
+    }),
   );
 
   // Make sure to return the config object as it might have been modified by the plugin.
@@ -23,11 +28,12 @@ async function setupNodeEvents(on, config) {
 }
 
 module.exports = defineConfig({
+  reporter: 'cypress-mochawesome-reporter',
   e2e: {
     baseUrl: "https://www.automationexercise.com/login",
     specPattern: "**/*.feature",
     setupNodeEvents,
-    defaultCommandTimeout: 10000
+    defaultCommandTimeout: 10000,
   },
   env: {
     pokeUrl: "https://pokeapi.co/api/v2/"

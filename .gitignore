@@ -3,3 +3,6 @@ package-lock.json
 
 #Ignore node_mmodules
 node_modules
+
+#Ignore mochawesome-report
+cypress\reports
