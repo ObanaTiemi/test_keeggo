@@ -27,5 +27,6 @@ Para instalar o cypress:
 
 Após a instação, é possível executar os testes pelos seguintes comandos:
 `npm run test` e `npx cypress run`
+
 No comando `npx cypress run`, é preciso fazer o download do [npx](https://www.npmjs.com/package/npx)
 
